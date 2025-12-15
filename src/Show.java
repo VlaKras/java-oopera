@@ -38,16 +38,21 @@ public class Show {
         }
     }
 
+    /*Добрый день! По условию задания, нам необходимо заменить актёра с подходящей фамилией,
+    если рассмотреть ситуацию, что у нас в списке может оказаться несколько актёров с одинаковой фамилией
+    то, по идеи можно заменить первого подходящего актёра(т.к. более подробной информации нет)
+    и выйти из цикла for */
     public void changeActorInShow(Actor newActor, String surname) {
-        int count = 0;
+        int numderOfActorsToReplace = 0;
         for (Actor actor : listOfActors) {
-            if (actor.getSurname().equals(surname)) {
-                listOfActors.remove(actor);
-                listOfActors.add(newActor);
-                count++;
+            if (actor.surname.equals(surname)) { //Находим актёра с подходящей фамилией
+                listOfActors.remove(actor); //Удаляем этого актёра из списка
+                listOfActors.add(newActor); //Добавляем актёра взамен удаленного, согласно условию
+                numderOfActorsToReplace++; //Инкрементируем счётчик, для проверки условия о совершенной замене
+                break; //Выходим из цикла, так как замена была произведена
             }
         }
-        if (count == 0) {
+        if (numderOfActorsToReplace == 0) {
             System.out.println("Актёр " + surname + " в \"" + title + "\" не участвует.");
         }
     }

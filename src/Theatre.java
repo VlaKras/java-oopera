@@ -19,7 +19,7 @@ public class Theatre {
         show.printListOfActors();
         ballet.printListOfActors();
         opera.printListOfActors();
-        ballet.changeActorInShow(actor1, actor3.getSurname());
+        ballet.changeActorInShow(actor1, actor3.surname);
         ballet.printListOfActors();
         opera.changeActorInShow(actor1, "Попов");
         ballet.printLibrettoText();
